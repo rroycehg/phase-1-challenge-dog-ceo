@@ -49,7 +49,9 @@ function appendBreeds(array) {
     for(elements in array){  
         let ul = document.querySelector('#dog-breeds')
         let li = document.createElement("li")
-        li.textContent = elements 
+        li.textContent = elements
+        li.style.color = "black"
+        li.addEventListener('click', changeColor)
         ul.append(li)
     };
     
@@ -57,9 +59,14 @@ function appendBreeds(array) {
 
 //addEventlisten for click and change color of clicked breed name
 
-function changeColor(text) {
-
+function changeColor(e) {
+    if (e.target.style.color == "black") {
+    e.target.style.color = "red"
+ } else {
+     e.target.style.color = "black"
  }
+
+}
 
 
 
