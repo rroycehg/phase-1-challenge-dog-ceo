@@ -3,6 +3,7 @@ console.log('%c HI, Group 6', 'color: firebrick')
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 
 document.addEventListener("DOMContentLoaded", bossDog)
+document.addEventListener("DOMContentLoaded", bossBreed)
 function bossDog() {
     fetch(imgUrl)
     .then(res => res.json())
@@ -24,8 +25,61 @@ function appendDogs(array) {
         img.alt = `${element}`
         img.style.height = '200px'
         img.style.width = '200px'
-        img.style.
         div.append(img)
     });
 }
+
+
+//Challenge 2
+
+const breedUrl = 'https://dog.ceo/api/breeds/list/all'
+
+function bossBreed() {
+    fetch(breedUrl)
+    .then(res => res.json())
+    .then(function(data) {
+        let dogBreeds = data["message"]
+         appendBreeds(dogBreeds)
+    })}
+
+
+
+function appendBreeds(array) {
+    
+    for(elements in array){  
+        let ul = document.querySelector('#dog-breeds')
+        let li = document.createElement("li")
+        li.textContent = elements 
+        ul.append(li)
+    };
+    
+}
+
+//addEventlisten for click and change color of clicked breed name
+
+function changeColor(text) {
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
