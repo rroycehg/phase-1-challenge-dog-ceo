@@ -46,14 +46,25 @@ function bossBreed() {
 
 function appendBreeds(array) {
     
-    for(elements in array){  
+    for(elements in array){
+        let dropDown = document.querySelector('#breed-dropdown')
+        let firstLetter = elements.charAt(0)
+        function hide(e) {
+            if (e.target.value.charAt(0) !== firstLetter) {
+                li.style.display = "none"
+            } else {
+                li.style.display = "block"
+            }
+        }
         let ul = document.querySelector('#dog-breeds')
         let li = document.createElement("li")
+        dropDown.addEventListener('change', hide)
         li.textContent = elements
         li.style.color = "black"
         li.addEventListener('click', changeColor)
         ul.append(li)
-    };
+    }
+
     
 }
 
